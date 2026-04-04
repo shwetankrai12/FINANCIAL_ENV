@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(py --version)",
+      "Read(//c/Users/shwet/anaconda3/Scripts/**)",
+      "Bash(/c/Users/shwet/anaconda3/Scripts/pip install:*)",
+      "Bash(/c/Users/shwet/anaconda3/python.exe -m pytest tests/ -v)",
+      "Bash(/c/Users/shwet/anaconda3/python.exe -m pytest tests/test_environment.py -v)",
+      "Bash(/c/Users/shwet/anaconda3/python.exe -c \"import huggingface_hub; print\\(huggingface_hub.__version__\\)\")"
+    ]
+  }
+}
