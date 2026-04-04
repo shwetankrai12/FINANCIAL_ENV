@@ -7,7 +7,9 @@
       "Bash(/c/Users/shwet/anaconda3/Scripts/pip install:*)",
       "Bash(/c/Users/shwet/anaconda3/python.exe -m pytest tests/ -v)",
       "Bash(/c/Users/shwet/anaconda3/python.exe -m pytest tests/test_environment.py -v)",
-      "Bash(/c/Users/shwet/anaconda3/python.exe -c \"import huggingface_hub; print\\(huggingface_hub.__version__\\)\")"
+      "Bash(/c/Users/shwet/anaconda3/python.exe -c \"import huggingface_hub; print\\(huggingface_hub.__version__\\)\")",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
