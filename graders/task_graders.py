@@ -106,8 +106,8 @@ def grade_trend_analysis(obs: FinancialObservation) -> GraderResult:
     # Consistency check: trend must match RSI
     if s.rsi_14 is not None and s.trend is not None:
         expected = (
-            "bullish" if s.rsi_14 > 55
-            else "bearish" if s.rsi_14 < 45
+            "bullish" if s.rsi_14 > 58
+            else "bearish" if s.rsi_14 < 42
             else "neutral"
         )
         if s.trend == expected:

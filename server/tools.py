@@ -108,8 +108,8 @@ def _rsi(series, period: int = 14) -> Optional[float]:
 def _trend(price: float, sma_20, sma_50, rsi) -> Optional[str]:
     if sma_20 is None or sma_50 is None or rsi is None:
         return "neutral"
-    if price > sma_20 > sma_50 and rsi > 55:
+    if price > sma_20 > sma_50 and rsi > 58:
         return "bullish"
-    if price < sma_20 < sma_50 and rsi < 45:
+    if price < sma_20 < sma_50 and rsi < 42:
         return "bearish"
     return "neutral"
