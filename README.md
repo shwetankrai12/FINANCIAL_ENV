@@ -1,7 +1,3 @@
-Rewrite README.md completely. Make it professional and impressive for hackathon judges.
-
-Use this exact structure:
-
 ---
 title: Financial Analysis Environment
 emoji: 📈
@@ -185,9 +181,3 @@ Works with NSE tickers too:
 - **Range** — 0.0 to 1.0 per task
 
 ---
-
-After writing README.md, commit and push to both remotes:
-git add README.md
-git commit -m "docs: comprehensive README for hackathon submission"
-git push origin main
-git push space main
