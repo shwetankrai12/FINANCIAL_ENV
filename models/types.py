@@ -7,7 +7,7 @@ class FinancialAction(BaseModel):
         ..., description="Task to run: price_check (easy), trend_analysis (medium), portfolio_rank (hard)"
     )
     ticker: str = Field(..., min_length=1, max_length=12, description="Primary ticker e.g. AAPL")
-    period: str = Field(default="3mo", description="yfinance period: 1d 5d 1mo 3mo 6mo 1y")
+    period: Literal["1d", "5d", "1mo", "3mo", "6mo", "1y"] = Field(default="3mo", description="yfinance period: 1d 5d 1mo 3mo 6mo 1y")
     tickers: Optional[List[str]] = Field(default=None, description="For portfolio_rank: list of 2-5 tickers")
 
 
