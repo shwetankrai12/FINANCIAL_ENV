@@ -62,7 +62,10 @@ def log_end(success: bool, steps: int, score: float, rewards: List[float]) -> No
 
 
 def get_action(client: OpenAI, task: dict, step: int, last_obs: Optional[dict] = None) -> dict:
-    """Ask LLM which action to take, fallback to deterministic action."""
+    """Ask LLM which action to take, merge with task dict to ensure all fields present."""
+    # Start with task as base — guarantees all required fields
+    action = dict(task)
+
     try:
         user_prompt = f"Take this financial analysis action: {task}"
         if last_obs:
@@ -80,10 +83,13 @@ def get_action(client: OpenAI, task: dict, step: int, last_obs: Optional[dict] =
         )
         import json
         text = completion.choices[0].message.content.strip()
-        return json.loads(text)
+        llm_action = json.loads(text)
+        # Merge: task fields as base, LLM can override but not remove
+        action.update(llm_action)
     except Exception:
-        # Fallback to deterministic action
-        return task
+        pass  # fallback to task dict as-is
+
+    return action
 
 
 async def run_task(task: dict) -> tuple[float, int, List[float]]:
