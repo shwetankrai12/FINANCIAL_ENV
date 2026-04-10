@@ -122,9 +122,11 @@ async def run_task(task: dict) -> tuple[float, int, List[float]]:
             error = obs.get("error_message")
             grader = obs.get("grader_result", {})
 
+            reward = max(0.001, min(0.999, float(reward)))
             rewards.append(reward)
             steps_taken = 1
-            score = grader.get("score", reward) if grader else reward
+            raw_score = grader.get("score", reward) if grader else reward
+            score = max(0.001, min(0.999, float(raw_score)))
 
             log_step(
                 step=1,
